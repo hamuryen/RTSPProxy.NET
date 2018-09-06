@@ -9,6 +9,7 @@
 #define RTSP_PROXY_LIBRARY_H
 
 #include <string>
+#include <memory>
 
 #include "RTSPSource.h"
 #include "RTSPDestination.h"
@@ -22,14 +23,14 @@ namespace Proxy
 	{
 	public:
 		RTSPProxy(const RTSPSource& source, const RTSPDestination& destination);
-		~RTSPProxy();
+		virtual ~RTSPProxy();
 
 		RTSPStatus Run();
 		bool Stop();
 		RTSPStatus RTSPUrl();
 
 	private:
-		RTSPProxyImp* m_Imp;
+		std::unique_ptr<RTSPProxyImp> m_Imp;
 	};
 };
 

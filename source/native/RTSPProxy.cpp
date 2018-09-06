@@ -10,12 +10,11 @@
 
 Proxy::RTSPProxy::RTSPProxy(const RTSPSource& source, const RTSPDestination& destination)
 {
-	m_Imp = new RTSPProxyImp(source, destination);
+	m_Imp = std::make_unique<RTSPProxyImp>(source, destination);
 }
 
 Proxy::RTSPProxy::~RTSPProxy()
 {
-	delete m_Imp;
 }
 
 Proxy::RTSPStatus Proxy::RTSPProxy::Run()

@@ -25,7 +25,7 @@ namespace Proxy
 	{
 	public:
 		RTSPProxyImp(const RTSPSource& source, const RTSPDestination& destination);
-		~RTSPProxyImp();
+		virtual ~RTSPProxyImp();
 
 		RTSPStatus Run();
 		bool Stop();
@@ -43,7 +43,7 @@ namespace Proxy
 		TaskScheduler* m_Scheduler;
 		UsageEnvironment* m_Environment;
 		ServerMediaSession* m_Session;
-		
+
 	private:
 		void DoLoop();
 	};
