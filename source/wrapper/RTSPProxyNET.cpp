@@ -7,39 +7,39 @@
 
 #include "RTSPProxyNET.h"
 
-Proxy::RTSPProxyNET::RTSPProxyNET(RTSPSourceNet% source, RTSPDestinationNet% destination)
+Proxy::RTSPProxyNet::RTSPProxyNet(RTSPSourceNet^ source, RTSPDestinationNet^ destination)
 {
-	RTSPSource s = source.ToNative();
-	RTSPDestination d = destination.ToNative();
+	RTSPSource s = source->ToNative();
+	RTSPDestination d = destination->ToNative();
 	m_Proxy = new RTSPProxy(s, d);
 }
 
-Proxy::RTSPProxyNET::~RTSPProxyNET()
+Proxy::RTSPProxyNet::~RTSPProxyNet()
 {
 	Destroy();
 }
 
-Proxy::RTSPProxyNET::!RTSPProxyNET()
+Proxy::RTSPProxyNet::!RTSPProxyNet()
 {
 	Destroy();
 }
 
-Proxy::RTSPStatusNet^ Proxy::RTSPProxyNET::Run()
+Proxy::RTSPStatusNet^ Proxy::RTSPProxyNet::Run()
 {
 	return RTSPStatusNet::FromNative(m_Proxy->Run());
 }
 
-bool Proxy::RTSPProxyNET::Stop()
+bool Proxy::RTSPProxyNet::Stop()
 {
 	return m_Proxy->Stop();
 }
 
-Proxy::RTSPStatusNet^ Proxy::RTSPProxyNET::RTSPUrl()
+Proxy::RTSPStatusNet^ Proxy::RTSPProxyNet::RTSPUrl()
 {
 	return RTSPStatusNet::FromNative(m_Proxy->RTSPUrl());
 }
 
-void Proxy::RTSPProxyNET::Destroy()
+void Proxy::RTSPProxyNet::Destroy()
 {
 	if (m_Proxy != nullptr)
 	{

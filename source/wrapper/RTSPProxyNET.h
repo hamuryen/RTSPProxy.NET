@@ -18,12 +18,12 @@ using namespace System;
 
 namespace Proxy
 {
-	public ref class RTSPProxyNET
+	public ref class RTSPProxyNet
 	{
 	public:
-		RTSPProxyNET(RTSPSourceNet% source, RTSPDestinationNet% destination);
-		~RTSPProxyNET();
-		!RTSPProxyNET();
+		RTSPProxyNet(RTSPSourceNet^ source, RTSPDestinationNet^ destination);
+		~RTSPProxyNet();
+		!RTSPProxyNet();
 
 		RTSPStatusNet^ Run();
 		bool Stop();
