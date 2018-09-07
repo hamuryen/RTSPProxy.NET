@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.0)
+project(RTSPProxy.NET)
+
+set(CPACK_PACKAGE_NAME "RTSPProxy.NET")
+set(CPACK_PACKAGE_VERSION_MAJOR 1)
+set(CPACK_PACKAGE_VERSION_MINOR 0)
+set(CPACK_PACKAGE_VERSION_PATCH 0)
+
+set(CMAKE_WARNINGE_MAKEFILE OFF)
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14  /clr")
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../native/source)
+
+file(GLOB SOURCES "*.c*")
+file(GLOB HEADERS "*.h*")
+
+add_library(${PROJECT_NAME} SHARED ${HEADERS} ${SOURCES})
+
+set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS "/clr")
+string(REPLACE "/EHsc" "/EHa" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
+string(REPLACE "/RTC1" "" CMAKE_CXX_FLAGS_DEBUG ${CMAKE_CXX_FLAGS_DEBUG})
+
+set(LIB_DEBUG "${CMAKE_CURRENT_SOURCE_DIR}/../native/build/source/Debug/RTSPProxy.lib")
+set(LIB_RELEASE "${CMAKE_CURRENT_SOURCE_DIR}/../native/build/source/Release/RTSPProxy.lib")
+
+target_link_libraries(${PROJECT_NAME} debug ${LIB_DEBUG} optimized ${LIB_RELEASE})
