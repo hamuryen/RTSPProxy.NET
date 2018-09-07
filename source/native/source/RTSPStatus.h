@@ -12,7 +12,7 @@
 
 namespace Proxy
 {
-	class RTSPStatus
+	class __declspec(dllexport) RTSPStatus
 	{
 	public:
 		RTSPStatus() { m_IsSuccces = false; };

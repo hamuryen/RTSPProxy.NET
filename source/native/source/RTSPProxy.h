@@ -19,7 +19,7 @@ namespace Proxy
 {
 	class RTSPProxyImp;
 
-	class RTSPProxy
+	class __declspec(dllexport) RTSPProxy
 	{
 	public:
 		RTSPProxy(const RTSPSource& source, const RTSPDestination& destination);

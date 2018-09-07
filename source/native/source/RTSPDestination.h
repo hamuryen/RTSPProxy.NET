@@ -12,7 +12,7 @@
 
 namespace Proxy
 {
-	class RTSPDestination
+	class __declspec(dllexport) RTSPDestination
 	{
 	public:
 		RTSPDestination() {};
