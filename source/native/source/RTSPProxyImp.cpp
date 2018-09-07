@@ -102,7 +102,6 @@ bool Proxy::RTSPProxyImp::Stop()
 		delete m_LoopThread;
 		m_LoopThread = nullptr;
 	}
-
 	return true;
 }
 

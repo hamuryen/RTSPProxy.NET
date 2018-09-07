@@ -14,12 +14,12 @@
 int main(int argc, char** argv)
 {
 	Proxy::RTSPSource source;
-	source.m_Url = "rtsp://192.168.1.72:554/Streaming/Channels/1?transportmode=unicast&profile=Profile_1";
+	source.m_Url = "rtsp://184.72.239.149/vod/mp4:BigBuckBunny_175k.mov";
 	source.m_SourceUsername = "admin";
-	source.m_SourcePassword = "12345";
+	source.m_SourcePassword = "admin";
 
 	Proxy::RTSPDestination destination;
-	destination.m_Port = 8555;
+	destination.m_Port = 554;
 	destination.m_StreamName = "video";
 	destination.m_Username = "admin";
 	destination.m_Password = "admin";

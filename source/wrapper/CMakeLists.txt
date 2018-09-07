@@ -21,7 +21,4 @@ set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS "/clr")
 string(REPLACE "/EHsc" "/EHa" CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS})
 string(REPLACE "/RTC1" "" CMAKE_CXX_FLAGS_DEBUG ${CMAKE_CXX_FLAGS_DEBUG})
 
-set(LIB_DEBUG "${CMAKE_CURRENT_SOURCE_DIR}/../native/build/source/Debug/RTSPProxy.lib")
-set(LIB_RELEASE "${CMAKE_CURRENT_SOURCE_DIR}/../native/build/source/Release/RTSPProxy.lib")
-
-target_link_libraries(${PROJECT_NAME} debug ${LIB_DEBUG} optimized ${LIB_RELEASE})
+target_link_libraries(${PROJECT_NAME} RTSPProxy)
