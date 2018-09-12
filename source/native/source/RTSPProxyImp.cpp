@@ -94,7 +94,7 @@ bool Proxy::RTSPProxyImp::Stop()
 	}
 	if (m_Scheduler != nullptr)
 	{
-		delete m_Scheduler;
+		//delete m_Scheduler;
 		m_Environment = nullptr;
 	}
 	if (m_LoopThread != nullptr)

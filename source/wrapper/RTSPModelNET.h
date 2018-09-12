@@ -24,9 +24,13 @@ namespace Proxy
 
 		std::string ToString(System::String^ source)
 		{
-			const char* cstr = (const char*)(Marshal::StringToHGlobalAnsi(source)).ToPointer();
-			std::string dest = cstr;
-			Marshal::FreeHGlobal(System::IntPtr((void*)cstr));
+			std::string dest = "";
+			if (source != nullptr)
+			{
+				const char* cstr = (const char*)(Marshal::StringToHGlobalAnsi(source)).ToPointer();
+				dest = cstr;
+				Marshal::FreeHGlobal(System::IntPtr((void*)cstr));
+			}
 			return dest;
 		};
 	};
